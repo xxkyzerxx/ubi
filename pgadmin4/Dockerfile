@@ -13,13 +13,13 @@ RUN apk add --no-cache libedit postgresql \
 
 RUN apk add --no-cache postgresql-dev libffi-dev
 
-ENV PGADMIN_VERSION=4.18
+ENV PGADMIN_VERSION=4.30
 ENV PYTHONDONTWRITEBYTECODE=1
 
 RUN apk update \
  && apk add --no-cache alpine-sdk linux-headers \
  && pip install --upgrade pip \
- && echo "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v${PGADMIN_VERSION}/pip/pgadmin4-${PGADMIN_VERSION}-py2.py3-none-any.whl" | pip install --no-cache-dir -r /dev/stdin \
+ && echo "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v${PGADMIN_VERSION}/pip/pgadmin4-${PGADMIN_VERSION}-py3-none-any.whl" | pip install --no-cache-dir -r /dev/stdin \
  && pip install --no-cache-dir --upgrade Flask-WTF==0.14.3 \
  && apk del alpine-sdk linux-headers
 
