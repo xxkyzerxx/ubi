@@ -7,7 +7,8 @@ RUN addgroup -g 1000 -S pgadmin \
  && chown -R 1000:1000 /pgadmin
 
 # Install postgresql tools for backup/restore
-RUN apk add --no-cache libedit postgresql \
+RUN apk update && apk upgrade \
+ && apk add --no-cache libedit postgresql \
  && cp /usr/bin/psql /usr/bin/pg_dump /usr/bin/pg_dumpall /usr/bin/pg_restore /usr/local/bin/ \
  && apk del postgresql
 
@@ -21,7 +22,7 @@ RUN apk update \
  && pip install --upgrade pip \
  && echo "https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v${PGADMIN_VERSION}/pip/pgadmin4-${PGADMIN_VERSION}-py3-none-any.whl" | pip install --no-cache-dir -r /dev/stdin \
  && pip install --no-cache-dir --upgrade Flask-WTF==0.14.3 \
- && apk del alpine-sdk linux-headers
+ && apk del alpine-sdk linux-headers 
 
 EXPOSE 5050
 
