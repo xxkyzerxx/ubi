@@ -14,7 +14,7 @@ RUN apk update && apk upgrade \
 
 RUN apk add --no-cache postgresql-dev libffi-dev
 
-ENV PGADMIN_VERSION=4.30
+ENV PGADMIN_VERSION=5.7
 ENV PYTHONDONTWRITEBYTECODE=1
 
 RUN apk update \
