@@ -1,4 +1,4 @@
-FROM confluentinc/cp-zookeeper:6.1.2-2-ubi8
+FROM confluentinc/cp-zookeeper:6.1.3-1-ubi8
 
 USER root
 

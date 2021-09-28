@@ -1,4 +1,4 @@
-FROM confluentinc/cp-schema-registry:6.1.3-1-ubi8
+FROM confluentinc/cp-enterprise-control-center:6.1.3-1-ubi8
 
 USER root
 
